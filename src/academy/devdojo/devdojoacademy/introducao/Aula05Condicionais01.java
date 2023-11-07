@@ -1,6 +1,6 @@
 package academy.devdojo.devdojoacademy.introducao;
 
-public class Aula05Condicionais {
+public class Aula05Condicionais01 {
     public static void main(String[] args) {
         int idade = 17;
         boolean isAutorizadoComprar = idade >= 18;
