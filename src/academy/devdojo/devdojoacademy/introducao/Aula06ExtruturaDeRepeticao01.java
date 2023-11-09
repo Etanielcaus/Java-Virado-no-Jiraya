@@ -30,6 +30,7 @@ public class Aula06ExtruturaDeRepeticao01 {
         numeros.add(20);
         numeros.add(30);
         numeros.add(40);
+        numeros.add(50);
 
         for (Integer numero: numeros){
             System.out.println(numero);
