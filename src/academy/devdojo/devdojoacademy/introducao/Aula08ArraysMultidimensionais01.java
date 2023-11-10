@@ -2,6 +2,7 @@ package academy.devdojo.devdojoacademy.introducao;
 
 public class Aula08ArraysMultidimensionais01 {
     public static void main(String[] args) {
+
         int[][] dias = new int[2][2];
         dias[0][0]= 10;
         dias[0][1]= 20;
