@@ -12,4 +12,5 @@ public class Professor {
             System.out.println("Não permitido dar aula");
         }
     }
+
 }
