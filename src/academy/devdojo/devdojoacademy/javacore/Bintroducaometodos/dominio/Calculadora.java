@@ -29,4 +29,11 @@ public class Calculadora {
             System.out.println(res);
         }
     }
+
+    public void alteraDoisNumeros(int num1, int num2){
+        num1 = 22;
+        num2 = 33;
+        System.out.println(num1);
+        System.out.println(num2);
+    }
 }
