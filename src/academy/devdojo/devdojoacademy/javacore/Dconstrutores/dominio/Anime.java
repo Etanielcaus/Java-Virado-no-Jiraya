@@ -5,8 +5,10 @@ public class Anime {
     private String tipo;
     private int episodios;
     private String genero;
+    private String estudio;
 
     public Anime(String novoNome, String tipoDoAnime, int quantosEpisodios, String qualGenero){
+        this();
         this.nome = novoNome;
         this.tipo = tipoDoAnime;
         this.episodios = quantosEpisodios;
@@ -18,11 +20,17 @@ public class Anime {
 
     }
 
+    public Anime(String novoNome, String tipoDoAnime, int quantosEpisodios, String qualGenero, String estudio){
+        this(novoNome, tipoDoAnime, quantosEpisodios, qualGenero);
+        this.estudio = estudio;
+    }
+
     public void imprimeComThis(){
         System.out.println(this.nome);
         System.out.println(this.tipo);
         System.out.println(this.episodios);
         System.out.println(this.genero);
+        System.out.println(this.estudio);
     }
 
     public String getGenero() {
