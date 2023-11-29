@@ -22,6 +22,7 @@ public class CarroTest01 {
         Carro carro2 = new Carro();
         Carro carro3 = new Carro();
 
+
         carro1.setNome("Volkswaggen");
         carro2.setNome("Hylux");
         carro3.setNome("Fiat");
@@ -32,12 +33,20 @@ public class CarroTest01 {
         Carro c3 = new Carro("Mercedes", 250);
         c1.imprime();
 
+        System.out.println("----------");
+
         Carro.velocidadeLimite = 300;
+        System.out.println(Carro.velocidadeLimite);
+        Carro.setVelocidadeLimite(360);
 
         System.out.println("----------");
         calcularVelocidade(c1.getVelocidadeMaxima(), Carro.velocidadeLimite);
         calcularVelocidade(c2.getVelocidadeMaxima(), Carro.velocidadeLimite);
         calcularVelocidade(c3.getVelocidadeMaxima(), Carro.velocidadeLimite);
+
+        Carro.setVelocidadeLimite(450);
+        System.out.println(Carro.getVelocidadeLimite());
+
 
     }
 }
