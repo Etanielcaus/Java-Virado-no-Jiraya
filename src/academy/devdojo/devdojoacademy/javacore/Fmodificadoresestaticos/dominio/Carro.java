@@ -14,6 +14,14 @@ public class Carro {
     }
 
 
+    public void andando(String nome){
+        System.out.println(nome + " está andando");
+    }
+
+    public void dirigir (Carro carro ){
+        System.out.println(carro.getNome() + " Está andando");
+        carro.andando("tatam");
+    }
 
     public void imprime(){
         System.out.println("----------");

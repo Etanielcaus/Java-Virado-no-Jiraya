@@ -28,6 +28,11 @@ public class CarroTest01 {
         carro3.setNome("Fiat");
         carro1.imprime();
 
+        System.out.println("===========");
+
+        carro1.dirigir(carro2);
+
+        System.out.println("=========");
         Carro c1 = new Carro("Fusca", 230);
         Carro c2 = new Carro("BMW", 300);
         Carro c3 = new Carro("Mercedes", 250);
