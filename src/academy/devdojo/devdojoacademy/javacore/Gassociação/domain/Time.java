@@ -20,6 +20,7 @@ public class Time {
     public void addJogador(Jogador jogador) {
         this.jogadores.add(jogador);
     }
+
     public String getNome() {
         return nome;
     }
