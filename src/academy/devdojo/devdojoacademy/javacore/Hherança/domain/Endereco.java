@@ -5,7 +5,6 @@ public class Endereco {
     private String rua;
 
 
-
     public String getCep() {
         return cep;
     }
