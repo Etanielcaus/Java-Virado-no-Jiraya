@@ -1,10 +1,12 @@
 package academy.devdojo.devdojoacademy.javacore.Hherança.domain;
 
 public class Pessoa {
-    private String nome;
-    private String cpf;
 
-    private Endereco endereco;
+    // Protected é somente possível utilizar dentro do pacote
+    protected String nome;
+    protected String cpf;
+
+    protected Endereco endereco;
 
 
     public void imprime(){
