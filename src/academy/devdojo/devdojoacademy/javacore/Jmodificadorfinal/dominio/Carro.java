@@ -2,6 +2,7 @@ package academy.devdojo.devdojoacademy.javacore.Jmodificadorfinal.dominio;
 
 public class Carro {
     private String nome;
+    public final Comprador COMPRADOR = new Comprador();
     private int velocidade;
     // Declaração de uma constante.
     private static final double VELOCIDADE_LIMITE = 250;
