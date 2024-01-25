@@ -5,10 +5,26 @@ package academy.devdojo.devdojoacademy.javacore.Kenum.dominio;
 public class Cliente {
     private String nome;
     private String tipo;
+    public static final String PESSOA_JURIDICA = "Pessoa_juridica";
+    public static final String PESSOA_FISICA = "Pessoa_fisica";
 
     public Cliente(String nome, String tipo) {
+        if (!tipo.equals(PESSOA_FISICA) && !tipo.equals(PESSOA_JURIDICA)){
+            return;
+        }
         this.nome = nome;
         this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        if (this.nome == null || this.tipo == null){
+            return "Não é possivel efetuar a sobrescrita";
+        }
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", tipo='" + tipo + '\'' +
+                '}';
     }
 
     public String getNome() {
