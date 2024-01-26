@@ -2,6 +2,7 @@ package academy.devdojo.devdojoacademy.javacore.Kenum.test;
 
 import academy.devdojo.devdojoacademy.javacore.Kenum.dominio.Cliente;
 import academy.devdojo.devdojoacademy.javacore.Kenum.dominio.Cliente02;
+import academy.devdojo.devdojoacademy.javacore.Kenum.dominio.Cliente03;
 import academy.devdojo.devdojoacademy.javacore.Kenum.dominio.TipoCliente;
 
 public class ClienteTest {
@@ -36,6 +37,11 @@ public class ClienteTest {
         //System.out.println(cliente02.toString());
         // ================================================
 
+        Cliente03 cliente04 = new Cliente03("João", TipoCliente.PESSOA_FISICA, Cliente03.TipoPagamento.CREDITO);
+        System.out.println(cliente04);
+
+        Cliente03 cliente05 =  new Cliente03("Jose", TipoCliente.PESSOA_JURIDICA, Cliente03.TipoPagamento.DEBITO);
+        System.out.println(cliente05);
 
 
     }
