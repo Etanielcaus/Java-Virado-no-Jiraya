@@ -32,7 +32,11 @@ public class ClienteTest {
         // ================================================
 
         Cliente02 cliente02 = new Cliente02("Nome", TipoCliente.PESSOA_FISICA);
-        System.out.println(cliente02.toString());
+        Cliente02 cliente03 = new Cliente02("Nome", TipoCliente.PESSOA_JURIDICA);
+        //System.out.println(cliente02.toString());
+        // ================================================
+
+
 
     }
 }

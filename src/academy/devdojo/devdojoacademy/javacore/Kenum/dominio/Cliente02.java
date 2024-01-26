@@ -2,18 +2,18 @@ package academy.devdojo.devdojoacademy.javacore.Kenum.dominio;
 
 public class Cliente02 {
     private String nome;
-    private TipoCliente tipoClienteFisica;
+    private TipoCliente tipoCliente;
 
-    public Cliente02(String nome, TipoCliente tipoClienteFisica) {
+    public Cliente02(String nome, TipoCliente tipoCliente) {
         this.nome = nome;
-        this.tipoClienteFisica = tipoClienteFisica;
+        this.tipoCliente = tipoCliente;
     }
 
     @Override
     public String toString() {
         return "Cliente02{" +
                 "nome='" + nome + '\'' +
-                ", tipoClienteFisica=" + tipoClienteFisica +
+                ", tipoClienteFisica=" + tipoCliente +
                 '}';
     }
 
@@ -25,11 +25,11 @@ public class Cliente02 {
         this.nome = nome;
     }
 
-    public TipoCliente getTipoClienteFisica() {
-        return tipoClienteFisica;
+    public TipoCliente getTipoCliente() {
+        return tipoCliente;
     }
 
-    public void setTipoClienteFisica(TipoCliente tipoClienteFisica) {
-        this.tipoClienteFisica = tipoClienteFisica;
+    public void setTipoCliente(TipoCliente tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 }
