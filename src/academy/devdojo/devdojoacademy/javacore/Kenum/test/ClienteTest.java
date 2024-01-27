@@ -1,9 +1,6 @@
 package academy.devdojo.devdojoacademy.javacore.Kenum.test;
 
-import academy.devdojo.devdojoacademy.javacore.Kenum.dominio.Cliente;
-import academy.devdojo.devdojoacademy.javacore.Kenum.dominio.Cliente02;
-import academy.devdojo.devdojoacademy.javacore.Kenum.dominio.Cliente03;
-import academy.devdojo.devdojoacademy.javacore.Kenum.dominio.TipoCliente;
+import academy.devdojo.devdojoacademy.javacore.Kenum.dominio.*;
 
 public class ClienteTest {
     // ================================================
@@ -42,6 +39,13 @@ public class ClienteTest {
 
         Cliente03 cliente05 =  new Cliente03("Jose", TipoCliente.PESSOA_JURIDICA, Cliente03.TipoPagamento.DEBITO);
         System.out.println(cliente05);
+        System.out.println("==================================");
+
+        // ================================================
+
+        Cliente04 cliente06 = new Cliente04("Pedro", TipoCliente.PESSOA_FISICA, TipoPagamento.DEBITO);
+        double valor = cliente06.getTipoPagamento().calcularDesconto(55);
+        System.out.println(valor);
 
 
     }
