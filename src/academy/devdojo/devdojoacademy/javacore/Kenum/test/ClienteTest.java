@@ -43,10 +43,9 @@ public class ClienteTest {
 
         // ================================================
 
-        Cliente04 cliente06 = new Cliente04("Pedro", TipoCliente.PESSOA_FISICA, TipoPagamento.DEBITO);
-        double valor = cliente06.getTipoPagamento().calcularDesconto(55);
-        System.out.println(valor);
-
+        Cliente04 cliente06 = new Cliente04("Pedro", TipoCliente.PESSOA_FISICA, TipoPagamento.DEBITO, 50);
+        // gambiarra teste.
+        System.out.println(cliente06.getTipoPagamento().calcularDesconto(cliente06.getValorDoProduto()));
 
     }
 }
