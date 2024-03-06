@@ -11,6 +11,7 @@ public class TestFuncionario {
         Gerente gerente01 = new Gerente("Pedro", 5000);
         Desenvolvedor desenvolvedor01 = new Desenvolvedor("João", 1200);
 
+        desenvolvedor01.imprime();
         System.out.println(desenvolvedor01);
         System.out.println(gerente01);
     }
