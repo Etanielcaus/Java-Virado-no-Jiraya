@@ -10,10 +10,13 @@ public class DataLoaderTest01 {
         databaseLoader.load();
         databaseLoader.remove();
         System.out.println("=====");
-        FileLoader fileLoader = new FileLoader();
+        FileLoader fileLoader = new FileLoader(30);
         fileLoader.load();
         fileLoader.remove();
         fileLoader.checkPermission();
         databaseLoader.checkPermission();
+        // Aqui é só um teste entre como funciona a interface
+        // Ele realiza a soma dos tamanho, mais o valor predefinido dentro da propria interface.
+        fileLoader.retrieveMaxDataSize();
     }
 }
