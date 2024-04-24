@@ -11,6 +11,7 @@ public class RuntimeExceptionTest02 {
         }
         return a/b;
 
+
 //        try {
 //            return a/b;
 //        } catch (ArithmeticException e){
