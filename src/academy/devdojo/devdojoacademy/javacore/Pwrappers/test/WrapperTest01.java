@@ -12,7 +12,7 @@ public class WrapperTest01 {
 //                Float: Envolve um valor do tipo primitivo float.
 
         Integer intW = 1;
-        Double doubleW = 1.0;
+        Double doubleW = 1D;
         Boolean booleanW = false;
         Character charW = 'S';
         Byte byteW = 1;
