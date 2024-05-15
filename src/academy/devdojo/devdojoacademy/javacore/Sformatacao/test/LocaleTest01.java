@@ -33,7 +33,7 @@ public class LocaleTest01 {
         System.out.println(localeIndia.getDisplayCountry());
         System.out.println(localeJapao.getDisplayCountry());
         System.out.println(localeHolanda.getDisplayCountry());
-        
+
         System.out.println(localeHolanda.getDisplayLanguage(localeItaly));
     }
 }
