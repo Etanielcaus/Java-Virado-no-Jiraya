@@ -4,9 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
-import java.util.Locale;
 
-public class LocalDateTime01 {
+public class LocalDateTimeTest01 {
     public static void main(String[] args) {
         LocalDateTime localDateTime = LocalDateTime.of(2002, 12, 5, 5, 5, 5);
         System.out.println(localDateTime);
