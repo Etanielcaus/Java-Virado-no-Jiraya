@@ -1,7 +1,7 @@
 package academy.devdojo.devdojoacademy.javacore.test;
 
 import academy.devdojo.devdojoacademy.javacore.Bintroducaometodos.dominio.Pessoa;
-
+// básico
 public class PessoaTest01 {
     public static void main(String[] args) {
         Pessoa pessoa1 = new Pessoa();
