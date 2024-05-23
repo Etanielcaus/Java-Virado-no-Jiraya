@@ -6,7 +6,7 @@ import java.time.temporal.ChronoUnit;
 
 public class ChronounitTest01 {
     public static void main(String[] args) {
-        LocalDateTime aniver = LocalDateTime.of(2023, Month.AUGUST, 4, 0, 0);
+        LocalDateTime aniver = LocalDateTime.of(2023, 5, 4, 0, 0);
         LocalDateTime now = LocalDateTime.now();
 
         System.out.println(ChronoUnit.DAYS.between(aniver, now));
