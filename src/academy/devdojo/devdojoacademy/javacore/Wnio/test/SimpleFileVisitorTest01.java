@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
-class ListAllFiles extends SimpleFileVisitor<Path> {
+class ListJavaFile extends SimpleFileVisitor<Path> {
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs){
         System.out.println(file.getFileName());
@@ -18,6 +18,6 @@ class ListAllFiles extends SimpleFileVisitor<Path> {
 public class SimpleFileVisitorTest01 {
     public static void main(String[] args) throws IOException {
         Path dirInicial = Paths.get(".");
-        Files.walkFileTree(dirInicial, new ListAllFiles());
+        Files.walkFileTree(dirInicial, new ListJavaFile());
     }
 }
