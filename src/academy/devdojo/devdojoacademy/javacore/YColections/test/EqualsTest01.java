@@ -16,6 +16,7 @@ public class EqualsTest01 {
 
         System.out.println(xiaomi2.getMarca().equals(xiaomi.getMarca()));
         System.out.println(xiaomi.equals(xiaomi3));
+        System.out.println(xiaomi.hashCode());
 
 
     }
