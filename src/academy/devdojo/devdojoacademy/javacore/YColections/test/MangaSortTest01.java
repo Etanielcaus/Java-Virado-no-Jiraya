@@ -7,6 +7,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+class MangaByIdCompataor implements Comparator<Manga> {
+
+    @Override
+    public int compare(Manga manga1, Manga manga2) {
+        return manga1.getId().compareTo(manga2.getId());
+    }
+}
+
 public class MangaSortTest01 {
     public static void main(String[] args) {
         List<Manga> listaMangas = new ArrayList<Manga>();
@@ -22,8 +30,17 @@ public class MangaSortTest01 {
         listaMangas.add(naruto);
         listaMangas.add(new Manga(15L, "Boruto", 12.0));
 
+        System.out.println("Ordenação por nome");
         Collections.sort(listaMangas);
+        for (Manga manga : listaMangas){
+            System.out.println(manga);
+        }
 
+        System.out.println("===");
+
+        System.out.println("Ordenação por Id");
+//        listaMangas.sort(new MangaByIdCompataor());
+        Collections.sort(listaMangas, new MangaByIdCompataor());
         for (Manga manga : listaMangas){
             System.out.println(manga);
         }
