@@ -80,14 +80,14 @@ public class Manga implements Comparable<Manga> {
 //        }
 
 //        Long:
-//        return this.id.compareTo(o.getId());
+        return this.id.compareTo(o.getId());
 
 //        Double
 //        return Double.valueOf(preco).compareTo(Double.valueOf(o.preco));
 //        return Double.compare(preco, o.getPreco());
 
 //        String
-        return this.titulo.compareTo(o.getTitulo());
+//        return this.titulo.compareTo(o.getTitulo());
 
     }
 }
