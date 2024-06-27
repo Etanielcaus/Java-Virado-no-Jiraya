@@ -3,7 +3,7 @@ package academy.devdojo.devdojoacademy.javacore.YColections.dominio;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Manga {
+public class Manga implements Comparable<Manga> {
     private Long id;
     private String titulo;
     private double preco;
@@ -61,5 +61,33 @@ public class Manga {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    @Override
+    public int compareTo(Manga o) {
+//        negativo se o this < o
+//        se this == o retorna 0
+//        positivo se o this > Manga
+//        Basicamente, implementa o método na classe e Overide no compareTo...
+
+//        Se for tipo primitivo:
+//        if (this.id < o.getId()){
+//            return -1;
+//        } else if (this.id.equals(o.getId())){
+//            return 0;
+//        }else {
+//            return 1;
+//        }
+
+//        Long:
+//        return this.id.compareTo(o.getId());
+
+//        Double
+//        return Double.valueOf(preco).compareTo(Double.valueOf(o.preco));
+//        return Double.compare(preco, o.getPreco());
+
+//        String
+        return this.titulo.compareTo(o.getTitulo());
+
     }
 }
