@@ -4,11 +4,12 @@ import academy.devdojo.devdojoacademy.javacore.YColections.dominio.Manga;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class IteratorTest01 {
     public static void main(String[] args) {
-        List<Manga> mangas = new ArrayList<>();
+        List<Manga> mangas = new LinkedList<Manga>();
 
         Manga dbz = new Manga(1L, "Dragon Ball", 55.0,2);
         Manga naruto = new Manga(2L, "Naruto", 30.0, 4);
