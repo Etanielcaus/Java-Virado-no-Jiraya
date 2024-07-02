@@ -15,6 +15,14 @@ class SmartphoneMarcaComparator implements Comparator<SmartPhone> {
     }
 }
 
+class MangaPrecoComparator implements Comparator<Manga>{
+
+    @Override
+    public int compare(Manga o1, Manga o2) {
+        return Double.compare(o1.getPreco(), o2.getPreco());
+    }
+}
+
 public class NavigableSetTest01 {
     public static void main(String[] args) {
 //        NavigableSet é uma interface em Java que estende a interface SortedSet e fornece métodos adicionais para
@@ -86,7 +94,7 @@ public class NavigableSetTest01 {
         Manga attackOnTitan = new Manga(20L, "Attack On Titan", 15.0, 6);
         Manga cavaleirosDoZodiaco = new Manga(15L, "Cavaleiros do Zodiaco", 9.0, 0);
 
-        NavigableSet<Manga> mangas = new TreeSet<>();
+        NavigableSet<Manga> mangas = new TreeSet<>(new MangaPrecoComparator());
         mangas.add(cavaleirosDoZodiaco);
         mangas.add(dbz);
         mangas.add(attackOnTitan);
@@ -94,8 +102,18 @@ public class NavigableSetTest01 {
 
         for (Manga manga : mangas) {
             System.out.println(manga);
-
         }
+
+        System.out.println("===");
+
+        Manga mangaTest = new Manga(18L, "YUYU", 11);
+        System.out.println(mangas.lower(mangaTest));
+        System.out.println(mangas.floor(mangaTest));
+        System.out.println(mangas.higher(mangaTest));
+
+        System.out.println(mangas.size());
+        System.out.println(mangas.pollFirst());
+        
 
     }
 }
