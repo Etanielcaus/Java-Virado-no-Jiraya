@@ -4,17 +4,50 @@ abstract class Animal{
     public abstract void consulta();
 }
 
+
+
+
 class Cachorro extends Animal{
+    private String nome;
     @Override
     public void consulta() {
         System.out.println("Consultado cachorro.");
     }
+
+    public Cachorro(String nome) {
+        this.nome = nome;
+    }
+
+    public Cachorro() {
+    }
+
+    @Override
+    public String toString() {
+        return "Cachorro{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
 }
 
 class Gato extends Animal{
+    private String nome;
     @Override
     public void consulta() {
         System.out.println("Consultado gato.");
+    }
+
+    public Gato(String nome) {
+        this.nome = nome;
+    }
+
+    public Gato() {
+    }
+
+    @Override
+    public String toString() {
+        return "Gato{" +
+                "nome='" + nome + '\'' +
+                '}';
     }
 }
 
@@ -39,5 +72,10 @@ public class WildCardTest01 {
         }
 //        animals[1] = new Gato();
 
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
