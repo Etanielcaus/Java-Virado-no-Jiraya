@@ -1,4 +1,4 @@
-package academy.devdojo.devdojoacademy.javacore.ZZClassesInternas.test;
+package academy.devdojo.devdojoacademy.javacore.ZZAclassesInternas.test;
 
 public class OuterClassesTest01 {
     private String name = "Joao";

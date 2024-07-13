@@ -1,4 +1,4 @@
-package academy.devdojo.devdojoacademy.javacore.ZZClassesInternas.test;
+package academy.devdojo.devdojoacademy.javacore.ZZAclassesInternas.test;
 
 import academy.devdojo.devdojoacademy.javacore.Zgenerics.dominio.Barco;
 
