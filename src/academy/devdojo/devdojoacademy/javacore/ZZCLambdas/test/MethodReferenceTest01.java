@@ -15,7 +15,9 @@ public class MethodReferenceTest01 {
 //        Collections.sort(animeList, (a1, a2) -> AnimeComparators.compareByTitle(a1, a2));
         Collections.sort(animeList, AnimeComparators::compareByTitle);
         Collections.sort(animeList, AnimeComparators::compareByEpisodes);
+//        animeList.sort(AnimeComparators.compareByEpisodes());
         System.out.println(animeList);
+
 
 
     }

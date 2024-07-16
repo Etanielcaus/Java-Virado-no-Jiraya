@@ -6,7 +6,7 @@ import academy.devdojo.devdojoacademy.javacore.ZZCLambdas.service.AnimeComparato
 import java.util.ArrayList;
 import java.util.List;
 
-public class MethodRefrenceTest02 {
+public class MethodReferenceTest02 {
     public static void main(String[] args) {
         AnimeComparators animeComparators = new AnimeComparators();
         List<Anime> animeList = new ArrayList<>(List.of(new Anime("Bersek", 5), new Anime("Naruto", 10), new Anime("DBZ", 3)));
