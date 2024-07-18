@@ -23,21 +23,12 @@ class comparatorLightByPrice implements Comparator<LightNovel> {
 }
 
 public class StreamTest01 {
+    private static List<LightNovel> novels = new ArrayList<LightNovel>(List.of(
+            new LightNovel("gfxg", 120),new LightNovel("guy", 210),
+            new LightNovel("asd", 580),new LightNovel("vxcvsd", 300),
+            new LightNovel("ascxcvxcv", 3600), new LightNovel("awfwef", 200)
+    ));
     public static void main(String[] args) {
-        LightNovel l1 = new LightNovel("gfxg", 120);
-        LightNovel l2 = new LightNovel("guy", 210);
-        LightNovel l3 = new LightNovel("asd", 580);
-        LightNovel l4 = new LightNovel("vxcvsd", 300);
-        LightNovel l5 = new LightNovel("ascxcvxcv", 3600);
-        LightNovel l6 = new LightNovel("awfwef", 200);
-
-        List<LightNovel> novels = new ArrayList<LightNovel>();
-        novels.add(l1);
-        novels.add(l2);
-        novels.add(l3);
-        novels.add(l4);
-        novels.add(l5);
-        novels.add(l6);
 
 //        Collections.sort(novels, new comparatorLightByTitle());
         novels.sort(Comparator.comparing(LightNovel::getTitle));
