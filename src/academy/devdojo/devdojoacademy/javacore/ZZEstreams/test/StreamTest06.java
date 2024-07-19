@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class StreamTest06 {
-    private static List<LightNovel> novels = new ArrayList<LightNovel>(List.of(
+    private static final List<LightNovel> novels = new ArrayList<LightNovel>(List.of(
             new LightNovel("gfxg", 120),new LightNovel("guy", 210),
             new LightNovel("asd", 580),new LightNovel("vxcvsd", 300),
             new LightNovel("ascxcvxcv", 3600), new LightNovel("awfwef", 200),
