@@ -6,6 +6,7 @@ public class LightNovel {
     private String title;
     private double price;
 
+
     public LightNovel(String title, double price) {
         this.title = title;
         this.price = price;
