@@ -49,7 +49,7 @@ public class StreamTest11 {
 //        Coletar todos os nomes em uma String
         String collectString = novels.stream().map(LightNovel::getTitle).collect(Collectors.joining(", "));
         System.out.println(collectString);
-        
+
 
     }
 }
