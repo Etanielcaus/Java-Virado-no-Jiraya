@@ -1,6 +1,6 @@
 package academy.devdojo.devdojoacademy.javacore.ZZFthreads.test;
 
-import academy.devdojo.devdojoacademy.javacore.ZZFthreads.test.dominio.Account;
+import academy.devdojo.devdojoacademy.javacore.ZZFthreads.dominio.Account;
 
 public class ThreadAccountTest01 implements Runnable {
     private Account account = new Account();
