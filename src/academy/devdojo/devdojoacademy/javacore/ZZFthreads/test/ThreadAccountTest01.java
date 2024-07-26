@@ -15,6 +15,16 @@ public class ThreadAccountTest01 implements Runnable {
         }
     }
 
+//    private static synchronized void print(){
+////
+//    }
+//    ou
+//    private static void pritn(){
+//        synchronized (){
+//
+//        }
+//    }
+
     public static void main(String[] args) {
         ThreadAccountTest01 thread = new ThreadAccountTest01();
         Thread t1 = new Thread(thread, "joao");
@@ -27,15 +37,26 @@ public class ThreadAccountTest01 implements Runnable {
     }
 
     private void withdraw(int amount) {
-        if (account.getBalance() >= amount) {
-            System.out.println(getThreadName() + " esta indo sacar dinheiro.");
-            account.withdraw(amount);
-            System.out.println(getThreadName() + " completou o saque, valor atual da conta "
-                    + account.getBalance());
-        } else {
-            System.out.println("Sem dinheiro para " + getThreadName() + " efetuar o saque."
-                    + account.getBalance());
+        System.out.println(getThreadName() + " ====thread rodado fora====");
+
+        synchronized (account) {
+            System.out.println(getThreadName() + " ====thread rodado dentro====");
+            if (account.getBalance() >= amount) {
+                System.out.println(getThreadName() + " esta indo sacar dinheiro.");
+                account.withdraw(amount);
+//                try {
+//                    Thread.sleep(10000);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+                System.out.println(getThreadName() + " completou o saque, valor atual da conta "
+                        + account.getBalance());
+            } else {
+                System.out.println("Sem dinheiro para " + getThreadName() + " efetuar o saque."
+                        + account.getBalance());
+            }
         }
+
     }
 
     private static String getThreadName() {
