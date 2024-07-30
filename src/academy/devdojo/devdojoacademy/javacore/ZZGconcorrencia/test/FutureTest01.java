@@ -1,19 +1,19 @@
 
 package academy.devdojo.devdojoacademy.javacore.ZZGconcorrencia.test;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class FutureTest01 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        Future<Double> dollar = executorService.submit(() -> {
-            TimeUnit.SECONDS.sleep(2);
+        Future<Double> dollarRequest = executorService.submit(() -> {
+            TimeUnit.SECONDS.sleep(5);
             return 4.35D;
         });
         System.out.println(doingSomething());
+        Double dollarResponse = dollarRequest.get(3, TimeUnit.SECONDS);
+        System.out.println("Dollar: " + dollarResponse);
+        executorService.shutdown();
     }
 
     private static long doingSomething(){
