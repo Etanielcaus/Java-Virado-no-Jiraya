@@ -50,7 +50,7 @@ public class CompletableFutureTest01 {
         CompletableFuture<Double> pricesAsyncFuture1 = storeService.getPricesAsyncCompletableFuture("Store 2");
         CompletableFuture<Double> pricesAsyncFuture2 = storeService.getPricesAsyncCompletableFuture("Store 3");
         CompletableFuture<Double> pricesAsyncFuture3 = storeService.getPricesAsyncCompletableFuture("Store 4");
-        
+
             System.out.println(pricesAsyncFuture.join());
             System.out.println(pricesAsyncFuture1.join());
             System.out.println(pricesAsyncFuture2.join());
