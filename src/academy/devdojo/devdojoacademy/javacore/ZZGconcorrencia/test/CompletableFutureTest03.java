@@ -23,7 +23,7 @@ public class CompletableFutureTest03 {
             thread.setDaemon(true);
             return thread;
         });
-        
+
         List<String> stores = List.of("Store 1", "Store 2", "Store 3", "Store 4");
         List<CompletableFuture<Double>> collect = stores.stream()
                 .map(s -> CompletableFuture.supplyAsync(() -> storeService.getPriceSync(s), executorService))
