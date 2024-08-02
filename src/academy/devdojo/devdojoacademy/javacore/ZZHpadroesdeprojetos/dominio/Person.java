@@ -29,6 +29,13 @@ public class Person {
         private String username;
         private String email;
 
+        private PersonBuilder(){
+        }
+
+        public static PersonBuilder builder(){
+            return new PersonBuilder();
+        }
+
         public PersonBuilder firstName(String firstname){
             this.firstname = firstname;
             return this;

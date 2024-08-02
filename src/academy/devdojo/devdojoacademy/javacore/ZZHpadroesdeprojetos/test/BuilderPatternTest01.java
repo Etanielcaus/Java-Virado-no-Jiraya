@@ -11,7 +11,8 @@ public class BuilderPatternTest01 {
          * when an object has a large number of optional parameters or when constructing the object is complex.
          */
 
-        Person build = new Person.PersonBuilder()
+        Person build = Person.PersonBuilder
+                .builder()
                 .firstName("Joao")
                 .lastName("Pedro")
                 .username("joaopedro")
