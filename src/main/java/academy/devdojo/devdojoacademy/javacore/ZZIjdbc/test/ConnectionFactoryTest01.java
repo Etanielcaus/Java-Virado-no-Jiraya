@@ -7,7 +7,9 @@ import academy.devdojo.devdojoacademy.javacore.ZZIjdbc.service.ProducerService;
 public class ConnectionFactoryTest01 {
     public static void main(String[] args) {
         Producer naruto = Producer.builder().name("Sakura").build();
+        Producer producerToUpdate = Producer.builder().id(7).name("Goji").build();
 //        ProducerService.save(naruto);
-        ProducerService.delete(4);
+//        ProducerService.delete(4);
+        ProducerService.update(producerToUpdate);
     }
 }
