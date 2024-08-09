@@ -28,6 +28,10 @@ public class ProducerService {
         return ProducerRepository.findByName(name);
     }
 
+    public static void showProducerMetaData(){
+        ProducerRepository.showProducerMetaData();
+    }
+
 
 
     private static void requireValidId(Integer id) {
