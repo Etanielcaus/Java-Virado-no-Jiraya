@@ -20,6 +20,9 @@ public class ConnectionFactoryTest01 {
 //        List<Producer> naruto1 = ProducerService.findByName("Sakura");
 //        log.info("Producers found '{}'", naruto1 );
 //        ProducerService.showProducerMetaData();
-        ProducerService.showDriverMetaData();
+//        ProducerService.showDriverMetaData();
+//        ProducerService.showTypeScrollWorking();
+//        ProducerService.addSalaryInLast();
+        ProducerService.reduceSalary();
     }
 }

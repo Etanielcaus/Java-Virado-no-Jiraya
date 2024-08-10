@@ -36,6 +36,18 @@ public class ProducerService {
         ProducerRepository.showDriverMetaData();
     }
 
+    public static void showTypeScrollWorking(){
+        ProducerRepository.showTypeScrollWorking();
+    }
+
+    public static void addSalaryInLast(){
+        ProducerRepository.addSalary();
+    }
+
+    public static void reduceSalary(){
+        ProducerRepository.reduceSalary();
+    }
+
 
 
     private static void requireValidId(Integer id) {

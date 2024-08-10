@@ -132,19 +132,97 @@ public class ProducerRepository {
 
             if (metaData.supportsResultSetType(ResultSet.TYPE_SCROLL_SENSITIVE)) {
                 log.info("{} Supports TYPE_SCROLL_SENSITIVE", databaseProductName);
-                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)){
+                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
                     log.info("And supports CONCUR_UPDATABLE");
                 }
             }
 
             if (metaData.supportsResultSetType(ResultSet.TYPE_SCROLL_INSENSITIVE)) {
                 log.info("{} Supports TYPE_SCROLL_INSENSITIVE", databaseProductName);
-                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)){
+                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
                     log.info("And supports CONCUR_UPDATABLE");
                 }
             }
         } catch (SQLException e) {
             log.error("Error while finding producers", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void showTypeScrollWorking() {
+        String sql = "SELECT id, name FROM anime_store.producer";
+        try (Connection conn = ConnectionFactory.getConnection();
+             Statement smt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+             ResultSet rs = smt.executeQuery(sql)) {
+            log.info("Is on last line {}", rs.last());
+            log.info("Row number: {}", rs.getRow());
+            log.info(Producer.builder().name(rs.getString("name")).id(rs.getInt("id")).build());
+
+            log.info("Is on first line {}", rs.first());
+            log.info("Row number: {}", rs.getRow());
+            log.info(Producer.builder().name(rs.getString("name")).id(rs.getInt("id")).build());
+
+            log.info("Row absolute {}", rs.absolute(5));
+            log.info("Row number: {}", rs.getRow());
+            log.info(Producer.builder().name(rs.getString("name")).id(rs.getInt("id")).build());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void addSalary(){
+        String sql = "SELECT id, name, salary FROM anime_store.producer";
+        try (Connection connection = ConnectionFactory.getConnection();
+         Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+         ResultSet rs = stmt.executeQuery(sql)){
+            rs.last();
+            float salary = rs.getFloat("salary");
+
+            log.info("adding a salary of 500 in the {}", rs.getString("name"));
+            rs.updateFloat("salary", salary + 500);
+            rs.updateRow();
+
+            float updatedSalary = rs.getFloat("salary");
+
+            log.info("Multiplyng this salary in 10x {}", rs.getFloat("salary"));
+            rs.updateFloat("salary", updatedSalary * 10);
+            rs.updateRow();
+
+            log.info(Producer.builder()
+                    .name(rs.getString("name"))
+                    .id(rs.getInt("id"))
+                    .salary(rs.getFloat("salary"))
+                    .build());
+
+//            Here we do add a salary in all Producers
+//            My cursor are in the last Producers, so i are using the previous and add salary in all.
+//            This method don't make part of the course, but i'm using for learning more.
+//            This will make add the most salary ever if executed.
+            while (rs.previous()){
+                log.info("adding a salary of 500 in the {}", rs.getString("name"));
+                rs.updateFloat("salary", salary + 500);
+                rs.updateRow();
+            }
+
+            log.info("Row now {}", rs.getRow());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void reduceSalary(){
+        String sql = "SELECT id, name, salary FROM anime_store.producer";
+        try (Connection connection = ConnectionFactory.getConnection();
+        Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()){
+                rs.updateFloat("salary", 200);
+                rs.updateRow();
+                log.info("the salary of '{}' all is now '{}", rs.getString("name")
+                , rs.getFloat("salary"));
+            }
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
