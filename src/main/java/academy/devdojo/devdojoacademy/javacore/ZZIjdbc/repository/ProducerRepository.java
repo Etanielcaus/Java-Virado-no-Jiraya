@@ -102,7 +102,6 @@ public class ProducerRepository {
              Statement smt = conn.createStatement();
              ResultSet rs = smt.executeQuery(sql)) {
             ResultSetMetaData metaData = rs.getMetaData();
-            rs.next();
             int columnCount = metaData.getColumnCount();
             log.info("Columns count '{}'", columnCount);
 
@@ -111,6 +110,38 @@ public class ProducerRepository {
                 log.info("Column name '{}'", metaData.getColumnName(i));
                 log.info("Column size '{}'", metaData.getColumnDisplaySize(i));
                 log.info("Column type '{}'", metaData.getColumnTypeName(i));
+            }
+        } catch (SQLException e) {
+            log.error("Error while finding producers", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void showDriverMetaData() {
+        log.info("Showing driver metadata");
+        try (Connection conn = ConnectionFactory.getConnection()) {
+            DatabaseMetaData metaData = conn.getMetaData();
+            String databaseProductName = metaData.getDatabaseProductName();
+
+            if (metaData.supportsResultSetType(ResultSet.TYPE_FORWARD_ONLY)) {
+                log.info("{} Supports TYPE_FORWARD_ONLY", databaseProductName);
+                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)) {
+                    log.info("And supports CONCUR_UPDATABLE");
+                }
+            }
+
+            if (metaData.supportsResultSetType(ResultSet.TYPE_SCROLL_SENSITIVE)) {
+                log.info("{} Supports TYPE_SCROLL_SENSITIVE", databaseProductName);
+                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE)){
+                    log.info("And supports CONCUR_UPDATABLE");
+                }
+            }
+
+            if (metaData.supportsResultSetType(ResultSet.TYPE_SCROLL_INSENSITIVE)) {
+                log.info("{} Supports TYPE_SCROLL_INSENSITIVE", databaseProductName);
+                if (metaData.supportsResultSetConcurrency(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)){
+                    log.info("And supports CONCUR_UPDATABLE");
+                }
             }
         } catch (SQLException e) {
             log.error("Error while finding producers", e);

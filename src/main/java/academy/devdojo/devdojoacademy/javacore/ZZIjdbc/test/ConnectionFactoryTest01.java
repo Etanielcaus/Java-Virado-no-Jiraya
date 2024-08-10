@@ -19,6 +19,7 @@ public class ConnectionFactoryTest01 {
 //        log.info("Producers found '{}'", all );
 //        List<Producer> naruto1 = ProducerService.findByName("Sakura");
 //        log.info("Producers found '{}'", naruto1 );
-        ProducerService.showProducerMetaData();
+//        ProducerService.showProducerMetaData();
+        ProducerService.showDriverMetaData();
     }
 }
