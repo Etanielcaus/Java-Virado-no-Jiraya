@@ -25,6 +25,8 @@ public class ConnectionFactoryTest01 {
 //        ProducerService.addSalaryInLast();
 //        ProducerService.reduceSalary();
 //        ProducerService.upperCase();
-        ProducerService.findAndUpperCase("goji");
+//        ProducerService.findAndUpperCase("goji");
+//        ProducerService.findOrInsert("goku");
+        ProducerService.findAndDelete("dbz");
     }
 }

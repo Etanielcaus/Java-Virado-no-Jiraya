@@ -57,6 +57,14 @@ public class ProducerService {
         return nameAndToUpperCase;
     }
 
+    public static void findOrInsert(String name){
+        ProducerRepository.findOrInsert(name);
+    }
+
+    public static void findAndDelete(String name){
+        ProducerRepository.findAndDelete(name);
+    }
+
 
 
     private static void requireValidId(Integer id) {

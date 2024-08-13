@@ -3,6 +3,7 @@ package academy.devdojo.devdojoacademy.javacore.ZZIjdbc.repository;
 import academy.devdojo.devdojoacademy.javacore.ZZIjdbc.conn.ConnectionFactory;
 import academy.devdojo.devdojoacademy.javacore.ZZIjdbc.dominio.Producer;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -263,6 +264,50 @@ public class ProducerRepository {
             throw new RuntimeException(e);
         }
         return producerListAtt;
+    }
+
+    public static void findOrInsert(String name){
+        String sql = "SELECT id, name FROM anime_store.producer where name like '%%%s%%'".formatted(name);
+        try (Connection connection = ConnectionFactory.getConnection();
+        Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet resultSet = statement.executeQuery(sql)) {
+            if (!resultSet.next()){
+                resultSet.moveToInsertRow();
+                resultSet.updateString("name", name);
+                resultSet.insertRow();
+            }
+            log.info("Name found {} whit id {}", resultSet.getString("name"), resultSet.getInt("id"));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void findAndDelete(String name){
+        String sql = "SELECT id, name FROM anime_store.producer where name like '%%%s%%'".formatted(name);
+        try (Connection connection = ConnectionFactory.getConnection();
+             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+             ResultSet resultSet = statement.executeQuery(sql)) {
+
+            boolean recordFound = false;
+
+            while (resultSet.next()) {
+                // Log the found record
+                log.info("Name found: {} with ID: {}", resultSet.getString("name"), resultSet.getInt("id"));
+
+                // Delete the current row
+                resultSet.deleteRow();
+
+                recordFound = true;
+            }
+
+            if (!recordFound) {
+                log.info("No records found with name like '{}'", name);
+            } else {
+                log.info("Records with name like '{}' have been deleted.", name);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 
