@@ -23,6 +23,8 @@ public class ConnectionFactoryTest01 {
 //        ProducerService.showDriverMetaData();
 //        ProducerService.showTypeScrollWorking();
 //        ProducerService.addSalaryInLast();
-        ProducerService.reduceSalary();
+//        ProducerService.reduceSalary();
+//        ProducerService.upperCase();
+        ProducerService.findAndUpperCase("goji");
     }
 }

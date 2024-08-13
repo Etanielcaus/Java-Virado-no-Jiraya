@@ -226,5 +226,43 @@ public class ProducerRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public static void toUpperCaseAllNames(){
+        String sql = "SELECT id, name FROM anime_store.producer;";
+        try (Connection connection = ConnectionFactory.getConnection();
+        Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet resultSet = stmt.executeQuery(sql) ){
+            while (resultSet.next()){
+                String name = resultSet.getString("name");
+                resultSet.updateString("name", name.toLowerCase());
+                resultSet.updateRow();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static List<Producer> findNameAndToUpperCase(String name){
+        String sql = "SELECT id, name FROM anime_store.producer where name like '%%%s%%'".formatted(name);
+        List<Producer> producerListAtt = new ArrayList<>();
+        try (Connection connection = ConnectionFactory.getConnection();
+        Statement stmt = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()){
+                rs.updateString("name", rs.getString("name").toUpperCase());
+                rs.updateRow();
+                Producer build = Producer.builder()
+                        .id(rs.getInt("id"))
+                        .name(rs.getString("name"))
+                        .build();
+
+                producerListAtt.add(build);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return producerListAtt;
+    }
 }
 

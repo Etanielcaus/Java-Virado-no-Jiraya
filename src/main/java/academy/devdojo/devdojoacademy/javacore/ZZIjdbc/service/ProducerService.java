@@ -48,6 +48,15 @@ public class ProducerService {
         ProducerRepository.reduceSalary();
     }
 
+    public static void upperCase(){
+        ProducerRepository.toUpperCaseAllNames();
+    }
+
+    public static List<Producer> findAndUpperCase(String name){
+        List<Producer> nameAndToUpperCase = ProducerRepository.findNameAndToUpperCase(name);
+        return nameAndToUpperCase;
+    }
+
 
 
     private static void requireValidId(Integer id) {
