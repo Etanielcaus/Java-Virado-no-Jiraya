@@ -65,6 +65,8 @@ public class ProducerService {
         ProducerRepository.findAndDelete(name);
     }
 
+    public static void findByNamePreparedStatement(String name){ ProducerRepository.findByNamePreparedStatement(name);}
+
 
 
     private static void requireValidId(Integer id) {

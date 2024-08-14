@@ -27,6 +27,7 @@ public class ConnectionFactoryTest01 {
 //        ProducerService.upperCase();
 //        ProducerService.findAndUpperCase("goji");
 //        ProducerService.findOrInsert("goku");
-        ProducerService.findAndDelete("dbz");
+//        ProducerService.findAndDelete("dbz");
+        ProducerService.findByNamePreparedStatement("gargadfa");
     }
 }
