@@ -12,6 +12,7 @@ public class ConnectionFactoryTest01 {
     public static void main(String[] args) {
         Producer naruto = Producer.builder().name("Sakura").build();
         Producer producerToUpdate = Producer.builder().id(7).name("Goji").build();
+        Producer producerToUpdate2 = Producer.builder().id(3).name("Goku").build();
 //        ProducerService.save(naruto);
 //        ProducerService.delete(4);
 //        ProducerService.update(producerToUpdate);
@@ -28,6 +29,7 @@ public class ConnectionFactoryTest01 {
 //        ProducerService.findAndUpperCase("goji");
 //        ProducerService.findOrInsert("goku");
 //        ProducerService.findAndDelete("dbz");
-        ProducerService.findByNamePreparedStatement("gargadfa");
+//        ProducerService.findByNamePreparedStatement("gargadfa");
+        ProducerService.updateWithPreparedStatement(producerToUpdate2);
     }
 }

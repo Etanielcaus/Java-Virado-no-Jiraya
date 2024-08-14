@@ -314,9 +314,11 @@ public class ProducerRepository {
         String sql = "SELECT id, name FROM anime_store.producer where name like ?";
         try (Connection connection = ConnectionFactory.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1,"%" + name + "%");
+            preparedStatement.setString(1, "%" + name + "%");
             try (ResultSet rs = preparedStatement.executeQuery()) {
-                if (!rs.isBeforeFirst()){log.info("not found");}
+                if (!rs.isBeforeFirst()) {
+                    log.info("not found");
+                }
                 while (rs.next()) {
                     log.info("id '{}' name '{}' ", rs.getInt("id"), rs.getString("name"));
                 }
@@ -324,6 +326,23 @@ public class ProducerRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void updateWithPreparedStatement(Producer producer) {
+        try (Connection connection = ConnectionFactory.getConnection();
+             PreparedStatement ps = preparedStatementUpdate(connection, producer)){
+                 ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static PreparedStatement preparedStatementUpdate(Connection connection, Producer producer) throws SQLException {
+        String sql = "UPDATE `anime_store`.`producer` SET `name` = ? WHERE (`id` = ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, producer.getName());
+        preparedStatement.setInt(2, producer.getId());
+        return preparedStatement;
     }
 }
 
