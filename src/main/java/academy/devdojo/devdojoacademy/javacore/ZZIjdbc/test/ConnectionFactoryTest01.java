@@ -3,6 +3,7 @@ package academy.devdojo.devdojoacademy.javacore.ZZIjdbc.test;
 import academy.devdojo.devdojoacademy.javacore.ZZIjdbc.dominio.Producer;
 import academy.devdojo.devdojoacademy.javacore.ZZIjdbc.repository.ProducerRepository;
 import academy.devdojo.devdojoacademy.javacore.ZZIjdbc.service.ProducerService;
+import academy.devdojo.devdojoacademy.javacore.ZZIjdbc.service.ProducerServiceRowSet;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.List;
@@ -31,6 +32,12 @@ public class ConnectionFactoryTest01 {
 //        ProducerService.findAndDelete("dbz");
 //        ProducerService.findByNamePreparedStatement("gargadfa");
 //        ProducerService.updateWithPreparedStatement(producerToUpdate2);
-        ProducerService.callableStatementFind("sakura");
+//        ProducerService.callableStatementFind("sakura");
+
+        Producer producerToUpdate3 = Producer.builder().id(8).name("Majin Boo").build();
+        ProducerServiceRowSet.updateProducer(producerToUpdate3);
+
+        List<Producer> list = ProducerServiceRowSet.findByNameWithJDBCRowSet("sakura");
+        log.info(list);
     }
 }
