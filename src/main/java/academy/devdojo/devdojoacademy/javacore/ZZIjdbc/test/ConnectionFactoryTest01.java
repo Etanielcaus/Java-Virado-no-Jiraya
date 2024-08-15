@@ -34,10 +34,11 @@ public class ConnectionFactoryTest01 {
 //        ProducerService.updateWithPreparedStatement(producerToUpdate2);
 //        ProducerService.callableStatementFind("sakura");
 
-        Producer producerToUpdate3 = Producer.builder().id(8).name("Majin Boo").build();
-        ProducerServiceRowSet.updateProducer(producerToUpdate3);
+        Producer producerToUpdate3 = Producer.builder().id(8).name("Vegeta").build();
+//        ProducerServiceRowSet.updateProducer(producerToUpdate3);
+        ProducerServiceRowSet.updateCachedProducer(producerToUpdate3);
 
-        List<Producer> list = ProducerServiceRowSet.findByNameWithJDBCRowSet("sakura");
+        List<Producer> list = ProducerServiceRowSet.findByNameWithJDBCRowSet("");
         log.info(list);
     }
 }

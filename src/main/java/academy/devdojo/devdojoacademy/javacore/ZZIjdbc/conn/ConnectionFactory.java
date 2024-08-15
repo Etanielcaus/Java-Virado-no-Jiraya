@@ -1,5 +1,8 @@
 package academy.devdojo.devdojoacademy.javacore.ZZIjdbc.conn;
 
+import com.mysql.cj.CacheAdapter;
+
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 import java.sql.Connection;
@@ -26,5 +29,9 @@ public class ConnectionFactory {
         jdbcRowSet.setUsername(username);
         jdbcRowSet.setPassword(password);
         return jdbcRowSet;
+    }
+
+    public static CachedRowSet getConnectionCachedRowSet() throws SQLException {
+        return RowSetProvider.newFactory().createCachedRowSet();
     }
 }

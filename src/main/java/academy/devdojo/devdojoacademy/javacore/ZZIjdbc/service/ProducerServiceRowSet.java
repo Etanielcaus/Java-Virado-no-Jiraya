@@ -16,4 +16,8 @@ public class ProducerServiceRowSet {
     public static void updateProducer(Producer producer){
         ProducerRepositoryRowSet.updateProducer(producer);
     }
+
+    public static void updateCachedProducer(Producer producer){
+        ProducerRepositoryRowSet.updateProducerCached(producer);
+    }
 }

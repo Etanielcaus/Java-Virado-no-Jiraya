@@ -3,7 +3,9 @@ package academy.devdojo.devdojoacademy.javacore.ZZIjdbc.repository;
 import academy.devdojo.devdojoacademy.javacore.ZZIjdbc.conn.ConnectionFactory;
 import academy.devdojo.devdojoacademy.javacore.ZZIjdbc.dominio.Producer;
 
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ public class ProducerRepositoryRowSet {
         }
         return producers;
     }
+
     public static void updateProducer(Producer producer){
         String sql = "SELECT * FROM anime_store.producer WHERE (`id` = ?)";
         try (JdbcRowSet jrs = ConnectionFactory.getConnectionJdbc()) {
@@ -34,6 +37,23 @@ public class ProducerRepositoryRowSet {
             if (!jrs.next()) return;
             jrs.updateString("name", producer.getName());
             jrs.updateRow();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void updateProducerCached(Producer producer){
+        String sql = "SELECT * FROM producer WHERE (`id` = ?)";
+        try (CachedRowSet jrs = ConnectionFactory.getConnectionCachedRowSet();
+             Connection connection = ConnectionFactory.getConnection()) {
+            connection.setAutoCommit(false);
+            jrs.setCommand(sql);
+            jrs.setInt(1, producer.getId());
+            jrs.execute(connection);
+            if (!jrs.next()) return;
+            jrs.updateString("name", producer.getName());
+            jrs.updateRow();
+            jrs.acceptChanges();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
