@@ -30,6 +30,7 @@ public class ConnectionFactoryTest01 {
 //        ProducerService.findOrInsert("goku");
 //        ProducerService.findAndDelete("dbz");
 //        ProducerService.findByNamePreparedStatement("gargadfa");
-        ProducerService.updateWithPreparedStatement(producerToUpdate2);
+//        ProducerService.updateWithPreparedStatement(producerToUpdate2);
+        ProducerService.callableStatementFind("sakura");
     }
 }
