@@ -13,6 +13,9 @@ public class ProducerServiceCrud {
         switch (op){
             case 1: findName();
         }
+        switch (op){
+            case 2: deleteWithId();
+        }
     }
 
     private static void findName(){
@@ -22,5 +25,12 @@ public class ProducerServiceCrud {
         for (int i = 0; i < producerList.size(); i++) {
             System.out.printf("%d - %s%n", producerList.get(i).getId(), producerList.get(i).getName());
         }
+    }
+
+    private static void deleteWithId(){
+        System.out.println("Delete the producer");
+        int id = scanner.nextInt();
+        ProducerRepostiryCrud.deleteNameWithId(id);
+        System.out.println("Producer Delete");
     }
 }

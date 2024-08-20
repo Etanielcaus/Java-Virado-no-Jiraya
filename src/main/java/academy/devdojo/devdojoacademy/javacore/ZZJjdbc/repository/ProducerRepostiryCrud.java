@@ -32,4 +32,16 @@ public class ProducerRepostiryCrud {
         return producersList;
     }
 
+    public static void deleteNameWithId(int id){
+        String sql = "DELETE FROM `anime_store`.`producer` WHERE (`id` = ?);";
+
+        try (Connection connection = ConnectionProducer.getConnection();
+        PreparedStatement pr = connection.prepareStatement(sql)) {
+            pr.setInt(1, id);
+            pr.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
