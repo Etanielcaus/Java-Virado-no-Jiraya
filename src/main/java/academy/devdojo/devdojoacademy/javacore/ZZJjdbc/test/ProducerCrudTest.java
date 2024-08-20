@@ -17,9 +17,11 @@ public class ProducerCrudTest {
     }
 
     public static void menu(){
+        System.out.println("=-=");
         System.out.println("Type the world for your operation");
         System.out.println("1 - search");
         System.out.println("2 - delete");
+        System.out.println("3 - save");
         System.out.println("0 - exit");
     }
 }

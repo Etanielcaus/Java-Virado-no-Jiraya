@@ -44,4 +44,16 @@ public class ProducerRepostiryCrud {
         }
     }
 
+    public static void save(Producer producer){
+        String sql = "INSERT INTO `anime_store`.`producer` (`name`) VALUES (?);";
+
+        try (Connection connection = ConnectionProducer.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, producer.getName());
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
