@@ -37,6 +37,7 @@ public class ProducerServiceCrud {
         String s = scanner.nextLine();
         if (s.equals("s")) ProducerRepostiryCrud.deleteNameWithId(id);
         System.out.println("Producer Delete");
+        System.out.println("Producer Delete");
     }
 
     private static void save(){
