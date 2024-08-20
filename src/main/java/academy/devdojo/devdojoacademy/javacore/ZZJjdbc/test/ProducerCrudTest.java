@@ -22,6 +22,7 @@ public class ProducerCrudTest {
         System.out.println("1 - search");
         System.out.println("2 - delete");
         System.out.println("3 - save");
+        System.out.println("4 - update");
         System.out.println("0 - exit");
     }
 }
