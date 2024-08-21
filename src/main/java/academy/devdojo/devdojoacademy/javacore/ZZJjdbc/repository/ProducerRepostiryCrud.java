@@ -57,11 +57,6 @@ public class ProducerRepostiryCrud {
         }
     }
 
-
-
-
-
-
     public static Optional<Producer> findByIdPreparedStatement(int id) {
         String sql = "SELECT id, name FROM anime_store.producer WHERE id = ?";
         try (Connection connection = ConnectionProducer.getConnection();
